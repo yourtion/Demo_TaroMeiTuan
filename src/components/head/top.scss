@@ -1,0 +1,23 @@
+.top {
+  background: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .left {
+    .img {
+      margin-left: 15px
+    }
+  }
+
+  .right {
+    .img {
+      margin-right: 15px
+    }
+  }
+}
