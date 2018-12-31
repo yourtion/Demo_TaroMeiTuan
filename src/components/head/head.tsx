@@ -1,6 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Image, Text } from "@tarojs/components";
 import Top from "./top";
+import Activity from "./activity";
 import "./head.scss";
 
 export default class Head extends Component {
@@ -38,6 +39,7 @@ export default class Head extends Component {
             </View>
           </View>
         </View>
+        <Activity />
       </View>
     );
   }
