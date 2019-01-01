@@ -10,7 +10,6 @@ export interface IFoodListProp {
 export default class FoodList extends Component<IFoodListProp> {
   render() {
     const { selectCata, list } = this.props;
-    console.log(JSON.stringify(this.props.list));
     return (
       <View className="foodlist">
         <Text>{selectCata.name}</Text>
@@ -21,7 +20,7 @@ export default class FoodList extends Component<IFoodListProp> {
                 <View className="item" key={item.id}>
                   <Image
                     className="img"
-                    src={require(`../../assets/img/${item.img}.jpg`)}
+                    src={item.img === 2 ? require(`../../assets/img/2.jpg`) : require(`../../assets/img/1.jpg`)}
                   />
                   <View className="info">
                     <Text>{item.title}</Text>
