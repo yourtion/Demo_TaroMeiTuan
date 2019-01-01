@@ -9,24 +9,25 @@ export default class Food extends Component {
     super(...arguments);
   }
   state = {
-    currentTab: 0,
+    current: 0,
     tabList: [{ title: "点菜" }, { title: "评价" }, { title: "商家" }]
   };
   changeTabs(value) {
-    this.setState({ currentTab: value });
+    console.log(value)
+    this.setState({ current: value });
   }
   render() {
-    const { currentTab, tabList } = this.state;
+    const { current, tabList } = this.state;
     return (
       <View>
         <AtTabs
-          current={currentTab}
+          current={current}
           tabList={tabList}
           onClick={this.changeTabs.bind(this)}
         >
-          <AtTabsPane><Cata /></AtTabsPane>
-          <AtTabsPane>评价</AtTabsPane>
-          <AtTabsPane>商家</AtTabsPane>
+          <AtTabsPane current={current} index={0} ><Cata /></AtTabsPane>
+          <AtTabsPane current={current} index={1}>评价</AtTabsPane>
+          <AtTabsPane current={current} index={2}>商家</AtTabsPane>
         </AtTabs>
       </View>
     );
