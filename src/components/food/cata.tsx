@@ -2,12 +2,16 @@ import Taro, { Component } from "@tarojs/taro";
 import { View, Text } from "@tarojs/components";
 import "./cata.scss";
 
-export default class Cata extends Component {
+export interface ICataProp {
+  onChangeCata?: ({ id: number, name: string }) => void;
+}
+
+export default class Cata extends Component<ICataProp> {
   constructor() {
     super(...arguments);
   }
   state = {
-    selectCata: { id: null },
+    selectCata: { id: null, name: "" },
     cata: [
       { id: 1, name: "专场" },
       { id: 2, name: "热销" },
@@ -19,9 +23,12 @@ export default class Cata extends Component {
     ]
   };
 
-  clickHandle(item: { id: number }) {
+  clickHandle(item: { id: number; name: string }) {
     if (this.state.selectCata.id !== item.id) {
-      this.setState({ selectCata: { id: item.id } });
+      this.setState({ selectCata: item }, () => {
+        this.props.onChangeCata &&
+          this.props.onChangeCata(this.state.selectCata);
+      });
     }
   }
 
