@@ -43,7 +43,7 @@ const config = {
             ]
           }
         },
-        PXtransform: {
+        pxtransform: {
           enable: true,
           config: {
 
